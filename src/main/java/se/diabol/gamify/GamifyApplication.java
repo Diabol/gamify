@@ -1,5 +1,6 @@
-package se.diabol.gamify;
+	package se.diabol.gamify;
 
+import se.diabol.gamify.resources.SlackResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,7 +24,8 @@ public class GamifyApplication extends Application<GamifyConfiguration> {
     @Override
     public void run(final GamifyConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        SlackResource resource = new SlackResource();
+        environment.jersey().register(resource);
     }
 
 }
