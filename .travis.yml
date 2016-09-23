@@ -1,6 +1,8 @@
 language: java
 jdk:
 - oraclejdk7
+notifications:
+  slack: diabol:wmEAe8P8NjdnEy2Ov4pYOr8s
 script:
   mvn install
 after_success:
