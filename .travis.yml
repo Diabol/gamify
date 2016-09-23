@@ -8,5 +8,6 @@ notifications:
   slack: diabol:wmEAe8P8NjdnEy2Ov4pYOr8s
 script:
   mvn install
+  docker build -t diabol/gamify-server .
 after_success:
   - echo "done!"
