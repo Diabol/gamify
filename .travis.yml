@@ -22,12 +22,7 @@ after_success:
     docker push diabolab/gamify-server;
     ssh ec2-user@ec2-52-49-155-146.eu-west-1.compute.amazonaws.com "sudo docker pull diabolab/gamify-server";
   fi
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-  on:
-    branch: master
+
 env:
   global:
     secure: Nfi2nBKW8B6jYamIaAhrlU2ZgtQGnHVhf14zPwlhHyrZ55yP7kEfz9R97mpdIociqO9AamOF13Uic4o3TxdLoDTSgOCvAqp0a7IgQ8hn5kRH5gPJgUp6gXthka6ZiFQ4sNSg58YIdCD1t/+ZHh+BYDt2K3rnx+aP+QbalB4ZlWtFYjNbcJXUyS7oRX6RB58DVg6tp4CQLFrhg6Ukkjdt6V9/SrRMIpCgqRaGzL52y2Wa5BkzZLlHMQ2kq8421eWL+pWA4oyCqz/avNUF6JAoupRKbMVDXDX4WQuXAIPFm4HbM3zXm9kPYXMjsJfAW8WajptVH1r04T8cTjnAoQzIdATn68FK10qT7nyR9bnLhFRykVHk9MzKSEzFyVu6QMeqYPjb+VM++0a0qlZIZSgfxj4Sy+eYYYLGpQt2j0AwtHYoBnKmMV4XlVsUGItRSCGu3dScBUhvWMdKQB5wuZSCVj14X5iBRQR/kPefbWRjdVqrJZhCqI84CVhuW8Ww/qoxTYmewrYi2JkyMQ3IZSJtY14GuJoAoRBzkEgslkwjHLJ6Gb/4wswULsp2COU0oFGoQrjrsjq/5erxocpONMXSAttPvBSPWPf/YhUacrouIwkgnXgMLEkwXZxSqW/ySgwycHhgvbntynau5HcWNGDuKaL1R1pakpKYLnEvvFwWNxM=
