@@ -6,15 +6,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import se.diabol.gamify.api.SlackResponse;
+
 @Path("/gamify")
-@Produces(MediaType.TEXT_PLAIN)
+@Produces(MediaType.APPLICATION_JSON)
 public class SlackResource {
 	
 	@GET
-	public String say(@QueryParam("user_name") String username, @QueryParam("text") String text) {
-		String result = "Congratulations " + username + " on earning your " + text + " badge!";
+	public SlackResponse say(@QueryParam("user_name") String username, @QueryParam("text") String text) {
+		String result = "Congratulations @" + username + " on earning your " + text + " badge!";
 		
-		return result;
+		return new SlackResponse("in_channel", result);
 	} 
 
 }
