@@ -16,10 +16,6 @@ before_install:
   eval `ssh-agent -s`;
   ssh-add deploy_key;
 
-before_deploy:
-- eval "$(ssh-agent -s)"
-- chmod 600 $TRAVIS_BUILD_DIR/deploy_key
-- ssh-add $TRAVIS_BUILD_DIR/key
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
