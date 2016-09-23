@@ -8,6 +8,9 @@ notifications:
   slack: diabol:wmEAe8P8NjdnEy2Ov4pYOr8s
 script:
   mvn install;
-  docker build -t diabol/gamify-server .
+  docker build -t diabolab/gamify-server .
 after_success:
-  - echo "done!"
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push diabolab/gamify-server;
+    fi
