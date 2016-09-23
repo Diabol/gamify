@@ -1,2 +1,0 @@
-# gamify
-Gamification
