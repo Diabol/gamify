@@ -7,4 +7,4 @@ database:
     driverClass: com.mysql.jdbc.Driver
     user: diabolab
     password: Hackathon2016
-    url: jdbc:mysql://gamify-db.cz7bwbsirbgo.eu-west-1.rds.amazonaws.com:3306/
+    url: jdbc:mysql://gamify-db.cz7bwbsirbgo.eu-west-1.rds.amazonaws.com:3306/gamify
