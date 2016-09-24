@@ -3,6 +3,7 @@
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
+import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import se.diabol.gamify.core.domain.*;
@@ -19,6 +20,12 @@ public class GamifyApplication extends Application<GamifyConfiguration> {
 		}
 	};
 	
+	private final MigrationsBundle<GamifyConfiguration> migrations = new MigrationsBundle<GamifyConfiguration>() {
+		public DataSourceFactory getDataSourceFactory(GamifyConfiguration configuration) {
+			return configuration.getDataSourceFactory();
+		};
+	};
+	
     public static void main(final String[] args) throws Exception {
         new GamifyApplication().run(args);
     }
@@ -31,6 +38,7 @@ public class GamifyApplication extends Application<GamifyConfiguration> {
     @Override
     public void initialize(final Bootstrap<GamifyConfiguration> bootstrap) {
     	bootstrap.addBundle(hibernate);
+    	bootstrap.addBundle(migrations);
     }
 
     @Override
