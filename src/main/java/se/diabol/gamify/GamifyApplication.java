@@ -31,12 +31,10 @@ public class GamifyApplication extends Application<GamifyConfiguration> {
     @Override
     public void initialize(final Bootstrap<GamifyConfiguration> bootstrap) {
     	bootstrap.addBundle(hibernate);
-        // TODO: application initialization
     }
 
     @Override
-    public void run(final GamifyConfiguration configuration,
-                    final Environment environment) {
+    public void run(final GamifyConfiguration configuration, final Environment environment) {
         SlackResource resource = new SlackResource();
         environment.jersey().register(resource);
     }
