@@ -10,11 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 @NamedQueries({
     @NamedQuery(name = "se.diabol.gamify.core.domain.User.findUserBySlackUserId",
-            query = "select e from User u "
+            query = "select u from User u "
             + "where u.slackUserId = :slackUserId ")
 })
 public class User {
@@ -35,6 +37,17 @@ public class User {
 	@OneToMany
 	private Set<UserAchievement> achievements;
 	
+	public User() {
+		super();
+	}
+
+	public User(String slackUserId, String slackUsername) {
+		super();
+		this.slackUserId = slackUserId;
+		this.slackUsername = slackUsername;
+		this.registered = new Date();
+	}
+
 	public long getId() {
 		return id;
 	}

@@ -7,6 +7,7 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import se.diabol.gamify.core.domain.*;
+import se.diabol.gamify.db.UserDao;
 import se.diabol.gamify.resources.SlackResource;
 
 public class GamifyApplication extends Application<GamifyConfiguration> {
@@ -43,7 +44,7 @@ public class GamifyApplication extends Application<GamifyConfiguration> {
 
     @Override
     public void run(final GamifyConfiguration configuration, final Environment environment) {
-        SlackResource resource = new SlackResource();
+        SlackResource resource = new SlackResource(new UserDao(hibernate.getSessionFactory()));
         environment.jersey().register(resource);
     }
     
