@@ -1,5 +1,7 @@
 package se.diabol.gamify.db;
 
+import java.util.Optional;
+
 import org.hibernate.SessionFactory;
 
 import se.diabol.gamify.core.domain.User;
@@ -19,4 +21,8 @@ public class UserDao extends AbstractDAO<User> {
         return persist(user).getId();
     }
 
+    public Optional<User> findBySlackUserId(String slackUserId) {
+    	return Optional.ofNullable(uniqueResult(namedQuery("findUserBySlackUserId")
+    			.setParameter("slackUserId", slackUserId)));
+    }
 }
