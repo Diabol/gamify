@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="micste">
+        <createTable tableName="user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="userId" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registered" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="micste">
+        <createTable tableName="useraction">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="userId" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actionId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repititions" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="micste">
+        <createTable tableName="action">
+            <column name="actionId" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="micste">
+        <createTable tableName="achievement">
+            <column name="achievementId" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="actionId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="level" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repititions" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="points" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="micste">
+        <createTable tableName="userAchievement">
+            <column name="achievementId" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="userId" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actionId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="level" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repititions" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCompleted" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
