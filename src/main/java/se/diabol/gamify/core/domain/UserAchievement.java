@@ -1,6 +1,6 @@
 package se.diabol.gamify.core.domain;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class UserAchievement {
 	@ManyToOne
 	private Achievement achievement;
 	
-	private LocalDateTime dateCompleted;
+	private Date dateCompleted;
 	
 	private String level;
 	
@@ -40,11 +40,11 @@ public class UserAchievement {
 		this.achievement = achievement;
 	}
 
-	public LocalDateTime getDateCompleted() {
+	public Date getDateCompleted() {
 		return dateCompleted;
 	}
 
-	public void setDateCompleted(LocalDateTime dateCompleted) {
+	public void setDateCompleted(Date dateCompleted) {
 		this.dateCompleted = dateCompleted;
 	}
 

@@ -1,6 +1,7 @@
 package se.diabol.gamify.core.domain;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ public class User {
 
 	private String slackUsername;
 	
-	private LocalDateTime registered;
+	private Date registered;
 
 	@OneToMany
 	private Set<UserAction> actions;
@@ -52,11 +53,11 @@ public class User {
 		this.slackUsername = slackUsername;
 	}
 	
-	public LocalDateTime getRegistered() {
+	public Date getRegistered() {
 		return registered;
 	}
 
-	public void setRegistered(LocalDateTime registered) {
+	public void setRegistered(Date registered) {
 		this.registered = registered;
 	}
 
