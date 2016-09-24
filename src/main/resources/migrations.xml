@@ -11,10 +11,10 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="userId" type="varchar(20)">
+            <column name="slackUserId" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="username" type="varchar(50)">
+            <column name="slackUsername" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="registered" type="datetime">
@@ -23,7 +23,7 @@
         </createTable>
     </changeSet>
     <changeSet id="2" author="micste">
-        <createTable tableName="useraction">
+        <createTable tableName="userAction">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
